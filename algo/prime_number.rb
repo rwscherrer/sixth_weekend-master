@@ -105,6 +105,10 @@ end
 # highest prime number under 10 is 7.
 
 def highest_prime_number_under(number)
+  prime_array []
+
+  (2..number - 1).each { |div| return false if number <= 1 || (number % div).zero? }
+
 
 end
 
