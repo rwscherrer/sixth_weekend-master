@@ -104,13 +104,27 @@ end
 # an argument and return the highest prime number under that number. For example, the 
 # highest prime number under 10 is 7.
 
-def highest_prime_number_under(number)
-  prime_array []
+class Highestprime
 
-  (2..number - 1).each { |div| return false if number <= 1 || (number % div).zero? }
+  def highest_prime_number_under(number)
 
+    require 'prime'
 
+    prime_array = []
+
+    Prime.each(number) do |prime|
+      prime_array << prime
+    end
+
+    if Prime.prime?(number)
+      less_array = prime_array.select { |x| x < number }
+      p less_array.pop
+    else
+      p prime_array.last
+    end
+  end
 end
+
 
 
 
