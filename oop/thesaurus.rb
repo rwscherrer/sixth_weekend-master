@@ -16,7 +16,7 @@
 
 class Entry
 
-  entry_list = []
+  entry_list = ["dog", "cat", "ball"]
   puts "Welcome to the Thesaurus Program"
 
   puts "Select the number for the action you would like:"
@@ -33,7 +33,7 @@ class Entry
     puts "Please enter a word to add:"
     new_word = gets.chomp
     if entry_list.include?(new_word) == false
-      entry_list << new_word
+      entry_list = entry_list.push(new_word)
     else puts "That word already exists"
       puts 
       puts "Select the number for the action you would like:"
@@ -45,19 +45,18 @@ class Entry
       puts "6) Add an antonym to a word"
     end
 
-    p entry_list
-  # else selection == 2
-  #   puts "Please enter a word to delete:"
-  #   delete_word = gets.chomp
-  #   if entry_list.include?(delete_list)
-  #     delete_index = entry_list.index(delete_word)
-  #     entry_list.delete(delete_index)
-  #   else
-  #     puts "oops"
-  #   end
+  elsif selection == "2"
+    puts "Please enter a word to delete:"
+    delete_word = gets.chomp
+    if entry_list.include?(delete_word)
+      delete_index = entry_list.index(delete_word)
+      entry_list = entry_list.delete(delete_index)
+    else
+      puts "oops"
+    end
   end
     
-
+puts entry_list
 end
 
 class Thesaurus
